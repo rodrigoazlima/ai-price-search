@@ -11,6 +11,6 @@ public class ModelDTO {
     private String id;
     private String object;
     private long created;
-    private String owned_by;
+    private String ownedBy;
 
 }

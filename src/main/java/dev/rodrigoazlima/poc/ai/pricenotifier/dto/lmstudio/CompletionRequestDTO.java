@@ -13,15 +13,15 @@ public class CompletionRequestDTO {
     private String model;
     private String prompt;
     private Double temperature;
-    private Integer max_tokens;
+    private Integer maxTokens;
     private Boolean stream;
     private String stop;
-    private Double presence_penalty;
-    private Double frequency_penalty;
-    private Map<String, Integer> logit_bias;
-    private Double repeat_penalty;
+    private Double presencePenalty;
+    private Double frequencyPenalty;
+    private Map<String, Integer> logitBias;
+    private Double repeatPenalty;
     private Integer seed;
-    private Integer top_p;
-    private Integer top_k;
+    private Integer topP;
+    private Integer topK;
 
 }

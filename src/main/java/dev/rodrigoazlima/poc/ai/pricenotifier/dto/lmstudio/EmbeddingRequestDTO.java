@@ -12,6 +12,6 @@ public class EmbeddingRequestDTO {
 
     private String model;
     private List<String> input;
-    private String encoding_format;
+    private String encodingFormat;
 
 }

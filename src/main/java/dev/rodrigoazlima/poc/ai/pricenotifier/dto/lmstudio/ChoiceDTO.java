@@ -10,6 +10,6 @@ public class ChoiceDTO {
 
     private Integer index;
     private ChatMessageDTO message;
-    private String finish_reason;
+    private String finishReason;
 
 }

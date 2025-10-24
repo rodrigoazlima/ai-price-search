@@ -13,7 +13,7 @@ public class ResponseRequestDTO {
     private String model;
     private String input;
     private ReasoningDTO reasoning;
-    private String previous_response_id;
+    private String previousResponseId;
     private Boolean stream;
     private List<ToolDTO> tools;
 

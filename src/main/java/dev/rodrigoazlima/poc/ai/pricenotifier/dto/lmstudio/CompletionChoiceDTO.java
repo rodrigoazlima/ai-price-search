@@ -10,6 +10,6 @@ public class CompletionChoiceDTO {
 
     private Integer index;
     private String text;
-    private String finish_reason;
+    private String finishReason;
 
 }

@@ -11,8 +11,8 @@ import java.util.List;
 public class ToolDTO {
 
     private String type;
-    private String server_label;
-    private String server_url;
-    private List<String> allowed_tools;
+    private String serverLabel;
+    private String serverUrl;
+    private List<String> allowedTools;
 
 }
