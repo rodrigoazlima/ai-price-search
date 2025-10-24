@@ -1,4 +1,4 @@
-package dev.rodrigoazlima.poc.ai.price_notifier.model;
+package dev.rodrigoazlima.poc.ai.pricenotifier.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
