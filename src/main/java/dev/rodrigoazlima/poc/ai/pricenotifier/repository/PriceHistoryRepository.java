@@ -1,0 +1,33 @@
+package dev.rodrigoazlima.poc.ai.price_notifier.repository;
+
+import dev.rodrigoazlima.poc.ai.price_notifier.model.PriceHistory;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Repository
+public interface PriceHistoryRepository extends JpaRepository<PriceHistory, Long> {
+
+    // Find price history for a specific product
+    List<PriceHistory> findByProductIdOrderByTimestampDesc(String productId);
+
+    // Find price history for a specific product within a date range
+    List<PriceHistory> findByProductIdAndTimestampBetweenOrderByTimestampDesc(
+            String productId, LocalDateTime startDate, LocalDateTime endDate);
+
+    // Find the latest price for a specific product
+    @Query("SELECT p FROM PriceHistory p WHERE p.productId = :productId " +
+            "ORDER BY p.timestamp DESC LIMIT 1")
+    PriceHistory findLatestPriceByProductId(@Param("productId") String productId);
+
+    // Find all records with prices higher than a specified amount
+    List<PriceHistory> findByPriceGreaterThanOrderByTimestampDesc(BigDecimal price);
+
+    // Find all records for a specific currency
+    List<PriceHistory> findByCurrencyOrderByTimestampDesc(String currency);
+}
