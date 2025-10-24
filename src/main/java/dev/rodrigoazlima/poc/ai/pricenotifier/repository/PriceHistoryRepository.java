@@ -1,4 +1,4 @@
-package dev.rodrigoazlima.poc.ai.price_notifier.repository;
+package dev.rodrigoazlima.poc.ai.pricenotifier.repository;
 
 import dev.rodrigoazlima.poc.ai.price_notifier.model.PriceHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
