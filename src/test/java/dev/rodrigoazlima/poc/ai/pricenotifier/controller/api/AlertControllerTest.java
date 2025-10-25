@@ -74,11 +74,13 @@ class AlertControllerTest {
         @Test
         @DisplayName("POST /api/v1/alerts with negative min_interval_hours returns 400")
         void create_negativeInterval_returns400() throws Exception {
-            String body = "{\n" +
-                    "  \"product_id\": \"prod123\",\n" +
-                    "  \"desired_price\": 10,\n" +
-                    "  \"min_interval_hours\": -1\n" +
-                    "}";
+            String body = """
+                    {
+                      "product_id": "prod123",
+                      "desired_price": 10,
+                      "min_interval_hours": -1
+                    }
+                    """;
 
             mockMvc.perform(post("/api/v1/alerts")
                             .contentType(MediaType.APPLICATION_JSON)
@@ -127,7 +129,10 @@ class AlertControllerTest {
         @Test
         @DisplayName("GET /api/v1/alerts filtered by product returns 200 with empty array (placeholder)")
         void list_byProduct_returns200() throws Exception {
-            mockMvc.perform(get("/api/v1/alerts").param("product_id", "prod123").param("limit", "50").param("offset", "0"))
+            mockMvc.perform(get("/api/v1/alerts")
+                            .param("product_id", "prod123")
+                            .param("limit", "50")
+                            .param("offset", "0"))
                     .andExpect(status().isOk())
                     .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(jsonPath("$.alerts", isA(Iterable.class)))
