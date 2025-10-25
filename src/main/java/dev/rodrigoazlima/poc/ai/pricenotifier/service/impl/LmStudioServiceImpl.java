@@ -1,7 +1,9 @@
 package dev.rodrigoazlima.poc.ai.pricenotifier.service.impl;
 
 import dev.rodrigoazlima.poc.ai.pricenotifier.dto.lmstudio.ChatCompletionDTO;
-import dev.rodrigoazlima.poc.ai.pricenotifier.dto.lmstudio.*;
+import dev.rodrigoazlima.poc.ai.pricenotifier.dto.lmstudio.ChatCompletionRequestDTO;
+import dev.rodrigoazlima.poc.ai.pricenotifier.dto.lmstudio.ChatMessageDTO;
+import dev.rodrigoazlima.poc.ai.pricenotifier.dto.lmstudio.ChoiceDTO;
 import dev.rodrigoazlima.poc.ai.pricenotifier.feign.LmStudioClient;
 import dev.rodrigoazlima.poc.ai.pricenotifier.service.LmStudioService;
 import lombok.extern.slf4j.Slf4j;
