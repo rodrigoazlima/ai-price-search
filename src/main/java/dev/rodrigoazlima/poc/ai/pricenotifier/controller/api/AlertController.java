@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import org.springframework.lang.Nullable;
 
 @Slf4j
 @RestController
@@ -64,7 +65,7 @@ public class AlertController {
     @Operation(summary = "List alerts", description = "Lists alert settings for the authenticated user, optionally filtered by product")
     public ResponseEntity<Map<String, Object>> listAlerts(
             @RequestParam(name = "product_id", required = false)
-            @Parameter(description = "Filter by product ID") String productId,
+            @Parameter(description = "Filter by product ID") @Nullable String productId,
             @RequestParam(name = "limit", required = false, defaultValue = "100")
             @Parameter(description = "Max results (1-100)") int limit,
             @RequestParam(name = "offset", required = false, defaultValue = "0")

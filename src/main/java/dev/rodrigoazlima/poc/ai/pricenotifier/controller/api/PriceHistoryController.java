@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.Nullable;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeParseException;
@@ -21,11 +22,11 @@ public class PriceHistoryController {
     public ResponseEntity<?> getPriceHistory(
             @PathVariable("product_id") String productId,
             @RequestParam(name = "from", required = false)
-            @Parameter(description = "Start of the time range in ISO-8601, e.g., 2023-01-01T00:00:00Z") String from,
+            @Parameter(description = "Start of the time range in ISO-8601, e.g., 2023-01-01T00:00:00Z") @Nullable String from,
             @RequestParam(name = "to", required = false)
-            @Parameter(description = "End of the time range in ISO-8601, e.g., 2023-12-31T23:59:59Z") String to,
+            @Parameter(description = "End of the time range in ISO-8601, e.g., 2023-12-31T23:59:59Z") @Nullable String to,
             @RequestParam(name = "limit", required = false)
-            @Parameter(description = "Max number of entries to return") Integer limit,
+            @Parameter(description = "Max number of entries to return") @Nullable Integer limit,
             @RequestParam(name = "sort", required = false, defaultValue = "asc")
             @Parameter(description = "Sort order by timestamp: asc or desc") String sort
     ) {
