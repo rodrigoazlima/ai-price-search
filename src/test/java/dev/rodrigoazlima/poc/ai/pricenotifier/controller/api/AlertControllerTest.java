@@ -24,11 +24,12 @@ class AlertControllerTest {
         @Test
         @DisplayName("POST /api/v1/alerts with valid body returns 201 and alert_id")
         void create_valid_returns201() throws Exception {
-            String body = "{\n" +
-                    "  \"product_id\": \"prod123\",\n" +
-                    "  \"desired_price\": 89.99,\n" +
-                    "  \"min_interval_hours\": 24\n" +
-                    "}";
+            String body = """
+                    {
+                      "product_id": "prod123",
+                      "desired_price": 89.99,
+                      "min_interval_hours": 24
+                    }""";
 
             mockMvc.perform(post("/api/v1/alerts")
                             .contentType(MediaType.APPLICATION_JSON)
@@ -41,11 +42,13 @@ class AlertControllerTest {
         @Test
         @DisplayName("POST /api/v1/alerts with negative desired_price returns 400")
         void create_negativePrice_returns400() throws Exception {
-            String body = "{\n" +
-                    "  \"product_id\": \"prod123\",\n" +
-                    "  \"desired_price\": -1,\n" +
-                    "  \"min_interval_hours\": 24\n" +
-                    "}";
+            String body = """
+                    {
+                      "product_id": "prod123",
+                      "desired_price": -1,
+                      "min_interval_hours": 24
+                    }
+                    """;
 
             mockMvc.perform(post("/api/v1/alerts")
                             .contentType(MediaType.APPLICATION_JSON)
@@ -58,11 +61,12 @@ class AlertControllerTest {
         @Test
         @DisplayName("POST /api/v1/alerts with missing product_id returns 400")
         void create_missingProductId_returns400() throws Exception {
-            String body = "{\n" +
-                    "  \"desired_price\": 10,\n" +
-                    "  \"min_interval_hours\": 24\n" +
-                    "}";
-
+            String body = """
+                    {
+                      "desired_price": 10,
+                      "min_interval_hours": 24
+                    }
+                    """;
             mockMvc.perform(post("/api/v1/alerts")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(body))
